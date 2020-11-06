@@ -776,6 +776,14 @@ else:
 print(int(result))
 
 
+dog = 'woof woof'
+if dog == 'woof woof':
+    print('Happy dog!')
+elif dog == 'growl':
+    print('Angry dog')
+else:
+    print('I cant tell')
+
 
 
 
