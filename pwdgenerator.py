@@ -8,22 +8,15 @@ nr_letters= int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
-
 #Random Letter
 ran_letter = random.sample(letters, nr_letters)
-str1 = ''.join(ran_letter)
-
 #Random numbers
 ran_number = random.sample(numbers, nr_numbers)
-num1 = ''.join(ran_number)
-
 #Random symbols
 ran_sym = random.sample(symbols, nr_symbols)
-sym1 = ''.join(ran_sym)
 
 #Combine str1, num1, and sym1 together in a list
 pw_shuffle = ran_letter + ran_number + ran_sym
-
 #Randomize the list
 random.shuffle(pw_shuffle)
 
