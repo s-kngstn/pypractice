@@ -31,7 +31,7 @@ def start():
   dealer_cards.append(drawcard())
   dealer_cards.append(drawcard())
   dealer_total = card_total(dealer_cards)
-  print(f"Dealers cards: {dealer_cards[0]}")
+  print(f"Dealers first card: {dealer_cards[0]}")
   #print(f"Dealer Card Total: {dealer_total}")
 
   # Does the user or computer have a Blackjack?
