@@ -1,0 +1,34 @@
+Blackjack Rules
+
+*Goal of the game is to add up your cards without going over 21
+*If the cards in your hand add up to more than 21 - its called a 'Bust'
+*Cards 2 to 10 - Counts as their facevalue
+*Cards Jack, Queen & King - Count as 10
+*Ace can count as 1 or 11 - You choose its value, depending on if your under 21
+or over 21
+
+If dealers first 2 cards are <17 they must choose another card
+
+Game starts
+need a deck of cards in a variable
+need a math random to randomly choose a value from the deck
+
+You get two cards and the values are added together
+-If your two cards == 21, you win. Unless the dealer also draws 21, in that
+case, you draw.
+Dealer gets two cards (one number is hidden)
+
+You get two choices:
+Hit: Pick another card (number)
+Stand: Stay at current value
+
+User:
+You must try to add your value up to as close to 21 as you can
+If you go over 21 you lose
+
+CPU (dealer):
+If dealers first two cards are <17 they must choose another card if they are
+17 or over they will stand
+
+
+
