@@ -7,7 +7,6 @@ milk = resources["milk"]
 coffee = resources["coffee"]
 money = 0
 machine_on = True
-
 def process_payment():
     quaters = int(input("quaters?")) * .25
     dimes = int(input("dimes?")) * .10
@@ -15,15 +14,18 @@ def process_payment():
     pennies = int(input("pennies?")) * .01
 
     total_cash = quaters + dimes + nickles + pennies
-    print(f"Total money inserted: {format(total_cash, decimal)}")
+    print(f"Total money inserted: ${format(total_cash, decimal)}")
     def change_given(drink_price, total_cash):
         if total_cash < drink_price:
             print("Sorry that's not enough money. Money Refunded")
+            global machine_on
+            machine_on = False
         else:
             change = total_cash - drink_price
+            print(f"Enjoy your {drink} ☕")
             return format(change, decimal)
     
-    print(f"Your change: {change_given(drink_price, total_cash)}")
+    print(f"Your change: ${change_given(drink_price, total_cash)}")
 
 while machine_on:
     drink = input("What would you like? (espresso/latte/cappuccino):").lower()
