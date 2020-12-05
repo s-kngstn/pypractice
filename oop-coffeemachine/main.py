@@ -7,6 +7,7 @@ menu = Menu()
 coffee_maker = CoffeeMaker()
 money_machine = MoneyMachine()
 
+
 is_on = True
 
 while is_on:
