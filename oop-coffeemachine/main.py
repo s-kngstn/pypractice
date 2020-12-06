@@ -6,13 +6,11 @@ from money_machine import MoneyMachine
 menu = Menu()
 coffee_maker = CoffeeMaker()
 money_machine = MoneyMachine()
-
-
 is_on = True
 
 while is_on:
     money_machine.money_received = 0
-    choice = input(f"What would you like? espresso/latte/cappuccino: ")
+    choice = input(f"What would you like? ({menu.get_items()}): ")
     if choice == "off":
         is_on = False
     elif choice == "report":
