@@ -30,6 +30,8 @@ pen = t.Turtle()
 t.colormode(255)
 #Lift up pen so that line is removed
 pen.penup()
+#Hide turtle
+pen.hideturtle()
 #Set starting co-ordinates for art piece
 pen.setposition(-200, -200)
 #Create a global 'Y Axis' variable to use after using inside make_row function
@@ -56,8 +58,8 @@ while column < 10:
     make_row()
     y += 50
     column += 1
-
-
+#Make final dot
+pen.dot(20, color_list[random.randint(0, len(color_list) - 1)])
 
 
 
