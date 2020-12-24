@@ -1,0 +1,8 @@
+[*] Create the screen
+[*] Create the paddle / Move the paddle
+[] Create another paddle for player 2
+[] Create the ball / Make the ball move
+[] Detect collision with wall and bounce
+[] Detect collision with paddle
+[] Detect when the paddle misses
+[] Keep Score
