@@ -1,0 +1,7 @@
+Hello, my name is Sam.
+I enjoy learning to code and hack.
+My favorite food is tacos or pizza.
+
+New line.
+New line.
+New line.
