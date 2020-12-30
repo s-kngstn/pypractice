@@ -17,7 +17,7 @@ ball = Ball()
 scoreboard = Scoreboard()
 
 screen.listen()
-screen.onkeypress(right_paddle.go_up, "Up")
+screen.onkey(right_paddle.go_up, "Up")
 screen.onkeypress(right_paddle.go_down, "Down")
 screen.onkeypress(left_paddle.go_up, "w")
 screen.onkeypress(left_paddle.go_down, "s")
