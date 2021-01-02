@@ -33,6 +33,8 @@ while GAME_IS_ON:
     answer_state = screen.textinput(title="Guess the State", prompt="What's another state's name?").title()
     location = state_data[state_data.state == answer_state]
 
+    if answer_state == "Exit":
+        break
     if answer_state in state_list and answer_state not in states_found_list:
         X = int(location.x)
         Y = int(location.y)
@@ -44,9 +46,17 @@ while GAME_IS_ON:
         correct_states += 1
         if len(states_found_list) == 50:
             score.clear()
-            score.goto(150, 250)
-            score.write("Congratulations! You Found All 50 States!", move=False, align="center", font=FONT)
+            score.goto(50, 250)
+            score.write("Congratulations! You Found All 50 States! Click Map To Exit", move=False, align="center", font=FONT)
             GAME_IS_ON = False
+            screen.exitonclick()
     else:
         pass
-screen.exitonclick()
+
+states_to_learn = []
+for state in state_list:
+    if state not in states_found_list:
+        states_to_learn.append(state)
+
+state_dataframe = pandas.DataFrame(states_to_learn)
+state_dataframe.to_csv("states_to_learn.csv")
