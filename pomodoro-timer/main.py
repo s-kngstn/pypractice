@@ -16,10 +16,12 @@ timer = None
 
 # ---------------------------- TIMER RESET ------------------------------- #
 def reset_timer():
+    global REPS
+    REPS = 0
     window.after_cancel(timer)
-    timer_text.config(text="00:00")  # <- wrong watch last video and check
-    # title_label "Timer"
-    # reset check_marks
+    canvas.itemconfig(timer_text, text="00:00")
+    title.config(text="Timer", fg=GREEN)
+    checkmarks.config(text="")
 
 
 # ---------------------------- TIMER MECHANISM ------------------------------- #
@@ -68,11 +70,6 @@ def count_down(count):
 window = tkinter.Tk()
 window.title("Pomodoro")
 window.config(padx=100, pady=50, bg=YELLOW)
-
-
-def reset_clicked():
-    pass
-
 
 # Title Label
 title = tkinter.Label(text="Timer",
