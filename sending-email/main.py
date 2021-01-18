@@ -37,7 +37,7 @@ import codecs
 
 now = dt.datetime.now()
 day_of_week = now.weekday()
-sunday = 6
+sunday = 0
 
 my_email = "rooteduzr@gmail.com"
 pw = "@s12345k!"
