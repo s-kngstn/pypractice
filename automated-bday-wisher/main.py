@@ -11,7 +11,7 @@ current_day = now.day
 today = (current_month, current_day)
 birthdays = {(data_row.month, data_row.day): data_row for (index, data_row) in data.iterrows()}
 my_email = "rooteduzr@gmail.com"
-email_pw = "@s12345k!"
+email_pw = "12345"
 subject = "Happy Birthday!"
 
 
