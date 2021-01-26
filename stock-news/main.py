@@ -42,7 +42,7 @@ if day < 5:
         percent_change = Percent(percent_diff(last_thursday_price, last_friday_price))
     # Tuesday
     elif day == 1:
-        last_friday_price = float(stock_data["Time Series (Daily)"][three_days_ago]['5. adjusted close'])
+        last_friday_price = float(stock_data["Time Series (Daily)"][four_days_ago]['5. adjusted close'])
         yesterdays_price =  float(stock_data["Time Series (Daily)"][yesterday]['5. adjusted close'])
         percent_change = Percent(percent_diff(last_friday_price, yesterdays_price))
     # Wed, Thur, Friday
