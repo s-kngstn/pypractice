@@ -1,9 +1,8 @@
-BB: 28.42%
-Headline: Exclusive: Banco do Brasil resumes sale process of asset management unit BB DTVM - sources - Reuters
-Brief: State-controlled Banco do Brasil SA has resumed the process to sell its asset management unit, known as BB DTVM, three people with knowledge of the matter said on Friday.
+ABNB: 8.57%
+Headline: IPO Report: Affirm reportedly prices IPO well above target to raise $1.2 billion
+Brief: Affirm Holdings Inc., which lets people purchase goods and pay over time, reportedly priced its initial public offering well above its target at $49 a share late Tuesday to raise at least $1.2 billion.
 
-BB: 28.42%
-Headline: BlackBerry jumps 20% after settling patent dispute with Facebook (BB, FB)
-Brief: Summary List PlacementBlackBerry shares spiked as much as 20% Tuesday after the company announced it settled a patent infringement suit with Facebook. The terms of the settlement weren't disclosed.
-BlackBerry first targeted Facebook with a lawsuit back in 201…
+ABNB: 8.57%
+Headline: The Tell: Bill Gross says stock market is ‘bubblicious’ and that ‘Robinhood and momentum rule’
+Brief: Fresh off his legal spat with his neighbor, investment pro Bill Gross has some views about the stock market and bulls aren't going to like it.
 

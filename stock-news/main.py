@@ -10,8 +10,8 @@ def percent_diff(old_value, new_value):
     diff = (new_value - old_value) / (old_value)
     return diff
 
-STOCK = "BB"
-COMPANY_NAME = "Blackberry"
+STOCK = "AMC"
+COMPANY_NAME = "AMC Entertainment"
 
 my_email = "rooteduzr@gmail.com"
 pw = "@s12345k!"
@@ -81,10 +81,10 @@ if day < 5:
 
         with open("stocks.txt") as file:
             stocknews = file.read()
-        with smtplib.SMTP("smtp.gmail.com") as connection:
-            connection.starttls()
-            connection.login(user=my_email, password=pw)
-            connection.sendmail(from_addr=my_email, to_addrs=my_email, msg=f"Subject: Stock News\n\n{stocknews}")
+        #with smtplib.SMTP("smtp.gmail.com") as connection:
+         #   connection.starttls()
+          #  connection.login(user=my_email, password=pw)
+           # connection.sendmail(from_addr=my_email, to_addrs=my_email, msg=f"Subject: Stock News\n\n{stocknews}")
             
     else:
         print("normal swings")
