@@ -18,10 +18,12 @@
 # 'Delete' Reqest is where you would want to delete a piece of data in the external service. Like removing a 
 # tweet that you posted or a reddit post.
 import requests
+from datetime import datetime
 
 USERNAME = "skngstn"
 TOKEN = "sh2fdn2ff3da7e2dn31qo9s"
 GRAPH_ID = "graph1"
+QUANTITY = "2.0"
 
 PIXELA_ENDPOINT = "https://pixe.la/v1/users"
 
@@ -53,17 +55,29 @@ headers = {
 
 PIXEL_ENDPOINT = f"{GRAPH_ENDPOINT}/{GRAPH_ID}"
 
+today = datetime.now()
+
 pixel_config = {
-    "date": "20210203",
-    "quantity": "2.7",
+    "date": today.strftime("%Y%m%d"),
+    "quantity": QUANTITY,
 }
 
-repsonse = requests.post(url=PIXEL_ENDPOINT, json=pixel_config, headers=headers)
-print(repsonse.text)
+# repsonse = requests.post(url=PIXEL_ENDPOINT, json=pixel_config, headers=headers)
+# print(repsonse.text)
+date_change = "20200202"
 
+UPDATE_ENDPOINT = f"{PIXEL_ENDPOINT}/{date_change}"
 
+new_pixel_data = {
+    "quantity": QUANTITY,
+}
 
+# response = requests.put(url=UPDATE_ENDPOINT, json=new_pixel_data, headers=headers)
+# print(response.text) 
+DELETE_ENDPOINT = f"{PIXEL_ENDPOINT}/{date_change}"
 
+response = requests.delete(url=DELETE_ENDPOINT, headers=headers)
+print(response.text)
 
 
 
