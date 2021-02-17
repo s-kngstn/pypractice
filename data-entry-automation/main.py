@@ -35,16 +35,19 @@ options = Options()
 options.binary_location = "/usr/bin/brave"
 chrome_driver_path = "/home/sk/selenium-webdriver/chromedriver"
 driver = webdriver.Chrome(options=options, executable_path=chrome_driver_path)
-driver.get(SF_RENTING_FORM)
 
-address_input = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
-add_address = address_input.send_keys(f"{addr_list[0]}")
+num = 0
+for _ in range(0, len(links_list)):
+    driver.get(SF_RENTING_FORM)
+    address_input = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
+    add_address = address_input.send_keys(f"{addr_list[num]}")
 
-price_input = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
-add_price = price_input.send_keys(f"{price_list[0]}")
+    price_input = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
+    add_price = price_input.send_keys(f"{price_list[num]}")
 
-link_input = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
-add_link = link_input.send_keys(f"https://www.zillow.com{links_list[0]}")
+    link_input = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
+    add_link = link_input.send_keys(f"https://www.zillow.com{links_list[num]}")
 
-button = driver.find_element_by_class_name("exportButtonContent")
-button.click()
+    button = driver.find_element_by_class_name("exportButtonContent")
+    button.click()
+    num += 1
