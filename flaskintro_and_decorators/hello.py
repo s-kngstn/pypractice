@@ -2,14 +2,44 @@ from flask import Flask
 app = Flask(__name__)
 
 print(__name__)
+def make_bold(function):
+    def wrapper():
+        return '<b>' + function() + '</b>'
+    return wrapper
+
+def make_emphasis(function):
+    def wrapper():
+        return '<em>' + function() + '</em>'
+    return wrapper
+
+def make_underline(function):
+    def wrapper():
+        return '<u>' + function() + '</u>'
+    return wrapper
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return '<h1 style="text-align: center">Hello, World!</h1>' \
+           '<p>This is a paragraph.</p>' \
+           '<img width="200px" src="https://media.giphy.com/media/8BKRfgnUt0KvS/giphy.gif">'
 
+#Different routes using the app.route decorator
 @app.route('/bye')
+@make_bold
+@make_emphasis
+@make_underline
 def say_bye():
-    return 'Bye'
+    return 'Good Bye!'
+
+@app.route('/testing')
+def tester():
+    return 'This, is a test..'
+
+#Creating variable paths and converting the path to a specified data type
+@app.route("/username/<name>/<int:number>")
+def greet(name, number):
+    return f"Hello, hows it going {name}?, you are {number} years old!"
 
 if __name__ == "__main__":
-    app.run()
+    #Run the app in debug mode to auto-reload
+    app.run(debug=True)

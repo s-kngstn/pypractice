@@ -89,9 +89,16 @@ say_hello()
 
 # ** - Below is the @delay_decorator without the syntactic sugar
 
-decorated_function = delay_decorator(say_greeting)
-decorated_function()
+#decorated_function = delay_decorator(say_greeting)
+#decorated_function()
 
+print(say_hello)
+print(delay_decorator)
+
+function_list = [say_bye, say_greeting, say_hello]
+function_list[1]()
+bye = function_list[2]
+bye()
 
 
 
