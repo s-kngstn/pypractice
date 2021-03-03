@@ -7,7 +7,7 @@ CURRENT_YEAR = datetime.now()
 MY_NAME ="Sam"
 app = Flask(__name__)
 
-@app.route('/guess/')
+@app.route('/')
 def home():
     current_year = CURRENT_YEAR.strftime("%Y")
     user_name = MY_NAME
@@ -20,12 +20,22 @@ def name(name_here):
         "name": name_here,
     }
 
-    age_res = requests.get("https://api.agify.io/", params=parameters)
-    gender_res = requests.get("https://api.genderize.io/", params=parameters)
+    age_data = requests.get("https://api.agify.io/", params=parameters)
+    gender_data = requests.get("https://api.genderize.io/", params=parameters)
 
-    age = age_res.json()['age']
-    gender = gender_res.json()['gender']
+    age = age_data.json()['age']
+    gender = gender_data.json()['gender']
     return render_template('name.html', age=age, gender=gender, name=name_here)
+
+@app.route("/blog/<num>")
+def get_blog(num):
+    print(num)
+    blog_url = "https://api.npoint.io/dda847db0143e6f02e4d"
+    response = requests.get(blog_url)
+    all_posts = response.json()
+    return render_template("blog.html", posts=all_posts)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

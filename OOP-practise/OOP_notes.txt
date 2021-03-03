@@ -1,0 +1,26 @@
+Object Oriented Programming allows programmers to create their own objects
+that have methods and attributes.
+
+Recall that after defining a string, list, dictionary, or other objects, you were 
+able to call methods of them with the .method_name() syntax.
+Examples - .title() .index() .lower()
+
+These methods act as functions that use information about the object, as well as the 
+object itself to return results, or change the current object.
+
+For example this includes appending to a list, or counting the occurences of an element in 
+a tuple.
+
+OOP allows users to create their own objects.
+
+The general format is often confusing when first encountered, and its usefulness may not be 
+completely clear at first.
+
+In general, OOP allows us to create code that is repeatable and organized.
+
+For much larger scripts of code, functions by themselves aren't enough for organization 
+and repeatablility.
+
+Commonly repeated tasks and objects can be defined with OOP to create code that is more usable.
+
+
