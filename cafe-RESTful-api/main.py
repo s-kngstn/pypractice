@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import random
+import secrets
 
 app = Flask(__name__)
 
@@ -8,6 +9,14 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cafes.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+#String to Bool
+def make_bool(val: int) -> bool:
+    '''Takes in a numeric value and converts to boolean
+    :param val: Expecting number
+    :return: Boolean
+    '''
+    return bool(int(val))
 
 
 ##Cafe TABLE Configuration
@@ -80,10 +89,58 @@ def get_cafe_at_location():
 
 
 ## HTTP POST - Create Record
+@app.route("/add", methods=["POST"])
+def post_new_cafe():
+    new_cafe = Cafe(
+        name=request.form.get("name"),
+        map_url=request.form.get("map_url"),
+        img_url=request.form.get("img_url"),
+        location=request.form.get("loc"),
+        has_sockets=make_bool(request.form.get("sockets")),
+        has_toilet=make_bool(request.form.get("toilet")),
+        has_wifi=make_bool(request.form.get("wifi")),
+        can_take_calls=make_bool(request.form.get("calls")),
+        seats=request.form.get("seats"),
+        coffee_price=request.form.get("coffee_price"),
+    )
+    db.session.add(new_cafe)
+    db.session.commit()
+    return jsonify(response={"success": "Successfully add the new cafe."})
 
 ## HTTP PUT/PATCH - Update Record
+@app.route("/update-price/<int:cafe_id>", methods=["PATCH"])
+def update_coffee_price(cafe_id):
+    new_price = request.args.get("new_price")
+    cafe = db.session.query(Cafe).get(cafe_id)
+    if cafe:
+        cafe.coffee_price = new_price
+        db.session.commit()
+        ## Just add the code after the jsonify method. 200 = Ok
+        return jsonify(response={"success": "Successfully updated the price."}), 200
+    else:
+        #404 = Resource Not Found
+        return jsonify(response={"Not Found": "Sorry a cafe with that id was not found in the database."}), 404
+
+top_secret_key = secrets.token_hex(16)
+print(top_secret_key)
 
 ## HTTP DELETE - Delete Record
+@app.route("/report-closed/<int:cafe_id>", methods=["DELETE"])
+def delete_coffee_shop(cafe_id):
+    coffee_shop = db.session.query(Cafe).get(cafe_id)
+    api_key = request.args.get("api-key")
+    if coffee_shop:
+
+        if api_key == top_secret_key:
+            db.session.delete(coffee_shop)
+            db.session.commit()
+            return jsonify(response={"success": "Successfully deleted coffee shop entry."}), 200
+        else:
+            #403
+            return jsonify(response={"Forbidden": "You do not have authorization to delete from this database"}), 403
+    else:
+        #404
+        return jsonify(response={"Not Found": "Sorry a cafe with that id was not found in the database."}), 404
 
 
 if __name__ == '__main__':
